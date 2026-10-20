@@ -1,0 +1,75 @@
+{
+  "name": "tracerkit",
+  "version": "1.19.5",
+  "description": "Spec-driven workflow for AI coding agents — PRD → plan → build → verify. Pure Markdown skills, zero runtime deps.",
+  "license": "MIT",
+  "author": {
+    "name": "helderberto",
+    "url": "https://github.com/helderberto"
+  },
+  "homepage": "https://github.com/helderberto/tracerkit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helderberto/tracerkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/helderberto/tracerkit/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "bin": {
+    "tracerkit": "dist/bin.js"
+  },
+  "keywords": [
+    "claude-code",
+    "ai-workflow",
+    "spec-driven",
+    "tracer-bullet",
+    "developer-tools",
+    "markdown",
+    "plugin"
+  ],
+  "files": [
+    "dist",
+    "skills"
+  ],
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "build": "vite build && chmod +x dist/bin.js",
+    "dev": "vite build --watch",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "version": "node -e \"const f='.claude-plugin/plugin.json';const p=JSON.parse(require('fs').readFileSync(f,'utf8'));p.version=require('./package.json').version;require('fs').writeFileSync(f,JSON.stringify(p,null,2)+'\\n')\"",
+    "prepare": "husky && npm run build",
+    "release": "semantic-release"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@types/node": "25.5.0",
+    "@vitest/coverage-istanbul": "4.1.2",
+    "eslint": "10.1.0",
+    "eslint-config-prettier": "10.1.8",
+    "husky": "9.1.7",
+    "lint-staged": "16.4.0",
+    "prettier": "3.8.1",
+    "semantic-release": "25.0.3",
+    "typescript": "6.0.2",
+    "typescript-eslint": "8.58.0",
+    "vite": "8.0.3",
+    "vitest": "4.1.2"
+  }
+}

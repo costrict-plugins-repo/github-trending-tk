@@ -1,0 +1,29 @@
+# CLI Reference
+
+The CLI manages skill installation and updates. Skills themselves run without CLI calls at runtime.
+
+```bash
+$ npm install -g tracerkit
+```
+
+## Commands
+
+| Command                    | Description                                           |
+| -------------------------- | ----------------------------------------------------- |
+| `tracerkit init`           | Install skills to `~/.claude/skills/`; safe to re-run |
+| `tracerkit init <path>`    | Install skills to a specific project directory        |
+| `tracerkit update`         | Refresh to latest version, skip modified files        |
+| `tracerkit update --force` | Replace modified files with latest versions           |
+| `tracerkit uninstall`      | Remove TracerKit skills, keep user artifacts          |
+| `tracerkit --version`      | Print version                                         |
+| `tracerkit --help`         | Show help message                                     |
+
+`init`, `update`, and `uninstall` default to `~/.claude/skills/`.
+
+## Team-scoped skill installs
+
+```bash
+$ tracerkit init .                      # install to .claude/skills/ in current dir
+$ tracerkit update .                    # update project-scoped skills
+$ tracerkit uninstall .                 # remove project-scoped skills
+```
